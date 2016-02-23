@@ -9,20 +9,20 @@
 /////////////////////////////////////////////////////
 // SETTING UP THE STEPPERS
 /////////////////////////////////////////////////////
-int stepper_driver_1_ccw[] = {
-    9, 6, 8, 7
-};
-
 int stepper_driver_2_ccw[] = {
-    11, 5, 10, 12
+    11, 10, 12, 9
 };
 
-int stepper_driver_1_cw[] = {
-    7, 8, 6, 9
+int stepper_driver_1_ccw[] = {
+    8, 5, 7, 6 
 };
 
 int stepper_driver_2_cw[] = {
-    12, 10, 5, 11
+    9, 12, 10, 11
+};
+
+int stepper_driver_1_cw[] = {
+    6, 7, 5, 8
 };
 
 // A variable to track the steppers
@@ -42,7 +42,7 @@ const int time_between_pass = 10000; // 60000ms = 1 Minute
 const int pass_amount = 12;
 
 // Inputs of the LDR 
-int ldrPin = A0;
+int ldrPin = A4;
 int dataBuffer[pass_amount];
 
 /////////////////////////////////////////////////////
@@ -124,7 +124,7 @@ void loop() {
 void led_blink(int flash_len) {
     for (int _step = 0; _step < 5; _step++) {
         digitalWrite(13, HIGH);
-        delay(100);
+        delay(1000);
         digitalWrite(13, LOW);
         delay(flash_len);
     }
